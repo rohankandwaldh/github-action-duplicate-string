@@ -1,10 +1,16 @@
 name: Run tests
-on: push
+
+on:
+  push:
+  workflow_dispatch:
+
 jobs:
   test:
-    runs-on: ubuntu-latest
+    name: Setup and run test
+    runs-on: ubuntu-20.04
     steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-      - name: run tests
-        uses: ./gradlew test
+      - uses: actions/checkout@v3
+      - name: Unit Test
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: testReleaseUnitTest
