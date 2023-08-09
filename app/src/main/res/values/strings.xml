@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">Github-Action-Duplicate-Strings</string>
+    <string name="z">Github-Action-Duplicate-Strings</string>
     <string name="app_name1">Github-Action-Duplicate-Strings</string>
+    <string name="app_name">Github-Action-Duplicate-Strings</string>
 </resources>
