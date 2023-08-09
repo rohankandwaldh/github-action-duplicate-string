@@ -1,0 +1,10 @@
+name: Run tests
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: action/checkout@v3
+      - name: run tests
+        uses: ./gradlew test
