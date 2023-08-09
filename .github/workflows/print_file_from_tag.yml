@@ -15,3 +15,6 @@ jobs:
 
       - name: print tag
         run: echo ${{steps.tag.outputs.tag}}
+
+      - name: compare files
+        run: git diff ${{steps.tag.outputs.tag}} dev --app/src/main/res/values/strings.xml
