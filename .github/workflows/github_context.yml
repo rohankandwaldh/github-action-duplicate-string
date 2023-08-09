@@ -1,5 +1,5 @@
 name: Print all Github context object
-on: workflow-dispatch
+on: workflow_dispatch
 jobs:
   print-object:
     runs-on: ubuntu-latest
