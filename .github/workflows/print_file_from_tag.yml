@@ -1,0 +1,19 @@
+name: Print file from a release tag
+on:
+  workflow_dispatch:
+jobs:
+  print-file:
+    name: Get latest file and print
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Required due to the way Git works, without it this action won't be able to find any or the correct tags
+      - name: Get tag
+        id: tag
+        uses: devops-actions/action-get-tag@v1.0.1
+        with:
+          strip_v: true # Optional: Remove 'v' character from version
+
+      - name: print tag
+        run: echo ${{steps.tag.outputs.tag}}
