@@ -14,27 +14,27 @@ jobs:
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
 
       - name: print tag
-        run: echo ${{steps.tag.outputs.tag}}
+        run: echo "${{steps.tag.outputs.tag}}"
 
-      - name: saving first xml file
-        run: git show ${{steps.tag.outputs.tag}}:app/src/main/res/values/strings.xml > tag_strings.xml
-
-      - name: adding permission to sorting script
-        run: chmod +x .github/workflows/scripts/sort_xml.sh
-        shell: bash
-
-      - name: sorting first file
-        run: .github/workflows/scripts/sort_xml.sh .github/workflows/scripts/tag_strings.xml
-        shell: bash
-
-      # second file
-
-      - name: saving second xml file
-        run: git show ${{steps.tag.outputs.tag}}:app/src/main/res/values/strings.xml > branch_strings.xml
-
-      - name: sorting second file
-        run: .github/workflows/scripts/sort_xml.sh .github/workflows/scripts/branch_strings.xml
-        shell: bash
+#      - name: saving first xml file
+#        run: git show ${{steps.tag.outputs.tag}}:app/src/main/res/values/strings.xml > tag_strings.xml
+#
+#      - name: adding permission to sorting script
+#        run: chmod +x .github/workflows/scripts/sort_xml.sh
+#        shell: bash
+#
+#      - name: sorting first file
+#        run: .github/workflows/scripts/sort_xml.sh .github/workflows/scripts/tag_strings.xml
+#        shell: bash
+#
+#      # second file
+#
+#      - name: saving second xml file
+#        run: git show ${{steps.tag.outputs.tag}}:app/src/main/res/values/strings.xml > branch_strings.xml
+#
+#      - name: sorting second file
+#        run: .github/workflows/scripts/sort_xml.sh .github/workflows/scripts/branch_strings.xml
+#        shell: bash
 
 
 
