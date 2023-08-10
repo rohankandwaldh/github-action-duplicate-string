@@ -33,7 +33,7 @@ jobs:
 
       - name: saving second xml file
         run: |
-             git show ${{ steps.previoustag.outputs.tag }}:app/src/main/res/values/strings.xml > branch_strings.xml
+             git show dev:app/src/main/res/values/strings.xml > branch_strings.xml
              cat branch_strings.xml
 
       - name: sorting second file
