@@ -17,23 +17,27 @@ jobs:
         run: echo "${{ steps.previoustag.outputs.tag }}"
 
       - name: saving first xml file
-        run: git show ${{ steps.previoustag.outputs.tag }}:app/src/main/res/values/strings.xml > tag_strings.xml
+        run: |
+             git show ${{ steps.previoustag.outputs.tag }}:app/src/main/res/values/strings.xml > tag_strings.xml
+             cat tag_strings.xml
 
       - name: adding permission to sorting script
         run: chmod +x .github/workflows/scripts/sort_xml.sh
         shell: bash
 
       - name: sorting first file
-        run: .github/workflows/scripts/sort_xml.sh .github/workflows/scripts/tag_strings.xml
+        run: .github/workflows/scripts/sort_xml.sh tag_strings.xml
         shell: bash
 
       # second file
 
       - name: saving second xml file
-        run: git show ${{ steps.previoustag.outputs.tag }}:app/src/main/res/values/strings.xml > branch_strings.xml
+        run: |
+             git show ${{ steps.previoustag.outputs.tag }}:app/src/main/res/values/strings.xml > branch_strings.xml
+             cat branch_strings.xml
 
       - name: sorting second file
-        run: .github/workflows/scripts/sort_xml.sh .github/workflows/scripts/branch_strings.xml
+        run: .github/workflows/scripts/sort_xml.sh branch_strings.xml
         shell: bash
 
 
