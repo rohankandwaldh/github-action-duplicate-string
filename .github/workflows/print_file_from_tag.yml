@@ -14,7 +14,7 @@ jobs:
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
 
       - name: print tag
-        run: echo "${{ steps.tag.outputs.tag }}"
+        run: echo "${{ steps.previoustag.outputs.tag }}"
 
 #      - name: saving first xml file
 #        run: git show ${{steps.tag.outputs.tag}}:app/src/main/res/values/strings.xml > tag_strings.xml
